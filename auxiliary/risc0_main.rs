@@ -80,7 +80,6 @@ async fn main() {
     let res = res.unwrap();
     if !res.result.is_success() {
         println!("TX failed in pre-flight");
-        return;
     }
 
     let zkdb = trace_db.create_zkdb();

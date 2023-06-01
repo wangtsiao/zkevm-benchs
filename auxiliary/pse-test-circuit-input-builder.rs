@@ -107,3 +107,33 @@ declare_test!(
     test_circuit_input_builder_multiple_keccak256_recursive_computes,
     "Multiple Keccak256Recursive computes"
 );
+// This test builds the complete circuit inputs for the block with single
+// successful keccak256recursive 100 compute txs.
+declare_test!(
+    test_circuit_input_builder_keccak256_recursive_100_computes,
+    "Keccak256Recursive computes 100 successful"
+);
+// This test builds the complete circuit inputs for the block with single
+// successful keccak256recursive 500 compute txs.
+declare_test!(
+    test_circuit_input_builder_keccak256_recursive_500_computes,
+    "Keccak256Recursive computes 500 successful"
+);
+// This test builds the complete circuit inputs for the block with single
+// successful keccak256recursive 1000 compute txs.
+declare_test!(
+    test_circuit_input_builder_keccak256_recursive_1000_computes,
+    "Keccak256Recursive computes 1000 successful"
+);
+// This test builds the complete circuit inputs for the block with single
+// successful keccak256recursive 3000 compute txs.
+declare_test!(
+    test_circuit_input_builder_keccak256_recursive_3000_computes,
+    "Keccak256Recursive computes 3000 successful"
+);
+// This test builds the complete circuit inputs for the block with single
+// successful keccak256recursive 5000 compute txs.
+declare_test!(
+    test_circuit_input_builder_keccak256_recursive_5000_computes,
+    "Keccak256Recursive computes 5000 successful"
+);

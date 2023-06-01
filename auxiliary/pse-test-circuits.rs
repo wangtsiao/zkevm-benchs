@@ -101,5 +101,25 @@ unroll_tests!(
     (
         circuit_multiple_keccak256_recursive_computes,
         "Multiple Keccak256Recursive computes"
+    ),
+    (
+        circuit_keccak256_recursive_100_computes,
+        "Keccak256Recursive computes 100 successful"
+    ),
+    (
+        circuit_keccak256_recursive_500_computes,
+        "Keccak256Recursive computes 500 successful"
+    ),
+    (
+        circuit_keccak256_recursive_1000_computes,
+        "Keccak256Recursive computes 1000 successful"
+    ),
+    (
+        circuit_keccak256_recursive_3000_computes,
+        "Keccak256Recursive computes 3000 successful"
+    ),
+    (
+        circuit_keccak256_recursive_5000_computes,
+        "Keccak256Recursive computes 5000 successful"
     )
 );

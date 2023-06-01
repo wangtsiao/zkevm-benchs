@@ -42,8 +42,8 @@ if [ "$should_install_go" = false ]; then
 fi
 
 if [ "$should_install_go" = true ]; then
-  wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
-  sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
+  wget https://go.dev/dl/go1.19.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
   echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
   source ~/.bashrc
 fi
@@ -61,7 +61,7 @@ git checkout 96d2e3c58d19423d062eb78ba3bd2310b9de6b31
 cd ..
 
 cp ./auxiliary/pse-lib.rs ./zkevm-circuits/integration-tests/src/lib.rs
-cp ./auxiliary/pse-gen-block-data ./zkevm-circuits/integration-tests/src/bin/gen_blockchain_data.rs
+cp ./auxiliary/pse-gen-block-data.rs ./zkevm-circuits/integration-tests/src/bin/gen_blockchain_data.rs
 cp ./auxiliary/pse-test-circuits.rs ./zkevm-circuits/integration-tests/tests/circuits.rs
 cp ./auxiliary/pse-test-circuit-input-builder.rs ./zkevm-circuits/integration-tests/tests/circuit_input_builder.rs
 cp ./auxiliary/pse-run.sh ./zkevm-circuits/integration-tests/run.sh

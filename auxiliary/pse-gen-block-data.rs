@@ -381,6 +381,7 @@ async fn main() {
             tx_hash,
             receipt
         );
+        info!("transfer tx hash: {:?}", tx_hash);
     }
     let block_num = prov.get_block_number().await.expect("cannot get block_num");
     blocks.insert(
@@ -421,13 +422,69 @@ async fn main() {
         if receipt.status != Some(U64::from(1)) {
             info!("failed tx hash: {:?}, receipt: {:#?}", tx_hash, receipt);
         }
+        info!("keccak256 tx hash: {:?}", tx_hash);
     }
     let block_num = prov.get_block_number().await.expect("cannot get block_num");
     blocks.insert(
-        "Multipe Keccak256Recursive computes".to_string(),
+        "Multiple Keccak256Recursive computes".to_string(),
         block_num.as_u64(),
     );
 
+    // Keccak256Recursive single successful 100 computes
+    info!("Doing Keccak256Recursive single 100 computes...");
+    let prov_wallet = &wallets[0];
+    let tx = keccak256_compute(prov_wallet.clone(), contract_address, contract_abi, U256::from(100u64));
+    let receipt = send_confirm_tx(prov_wallet, tx).await;
+    assert_eq!(receipt.status, Some(U64::from(1u64)));
+    blocks.insert(
+        "Keccak256Recursive computes 100 successful".to_string(),
+        receipt.block_number.unwrap().as_u64(),
+    );
+
+    // Keccak256Recursive single successful 500 computes
+    info!("Doing Keccak256Recursive single 500 computes...");
+    let prov_wallet = &wallets[0];
+    let tx = keccak256_compute(prov_wallet.clone(), contract_address, contract_abi, U256::from(500u64));
+    let receipt = send_confirm_tx(prov_wallet, tx).await;
+    assert_eq!(receipt.status, Some(U64::from(1u64)));
+    blocks.insert(
+        "Keccak256Recursive computes 500 successful".to_string(),
+        receipt.block_number.unwrap().as_u64(),
+    );
+
+    // Keccak256Recursive single successful 1000 computes
+    info!("Doing Keccak256Recursive single 1000 computes...");
+    let prov_wallet = &wallets[0];
+    let tx = keccak256_compute(prov_wallet.clone(), contract_address, contract_abi, U256::from(1000u64));
+    let receipt = send_confirm_tx(prov_wallet, tx).await;
+    assert_eq!(receipt.status, Some(U64::from(1u64)));
+    blocks.insert(
+        "Keccak256Recursive computes 1000 successful".to_string(),
+        receipt.block_number.unwrap().as_u64(),
+    );
+
+    // Keccak256Recursive single successful 3000 computes
+    info!("Doing Keccak256Recursive single 3000 computes...");
+    let prov_wallet = &wallets[0];
+    let tx = keccak256_compute(prov_wallet.clone(), contract_address, contract_abi, U256::from(3000u64));
+    let receipt = send_confirm_tx(prov_wallet, tx).await;
+    assert_eq!(receipt.status, Some(U64::from(1u64)));
+    blocks.insert(
+        "Keccak256Recursive computes 3000 successful".to_string(),
+        receipt.block_number.unwrap().as_u64(),
+    );
+
+    // Keccak256Recursive single successful 5000 computes
+    info!("Doing Keccak256Recursive single 5000 computes...");
+    let prov_wallet = &wallets[0];
+    let tx = keccak256_compute(prov_wallet.clone(), contract_address, contract_abi, U256::from(5000u64));
+    let receipt = send_confirm_tx(prov_wallet, tx).await;
+    assert_eq!(receipt.status, Some(U64::from(1u64)));
+    blocks.insert(
+        "Keccak256Recursive computes 5000 successful".to_string(),
+        receipt.block_number.unwrap().as_u64(),
+    );
+    
     let gen_data = GenDataOutput {
         coinbase: accounts[0],
         wallets: wallets.iter().map(|w| w.address()).collect(),

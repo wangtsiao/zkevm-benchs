@@ -12,8 +12,13 @@ tx_circuit"
 # super_circuit"
 
 TESTS="
-multiple_erc20_openzeppelin_transfers
-multiple_keccak256_recursive_computes"
+erc20_openzeppelin_transfer_succeed
+erc20_openzeppelin_transfer_fail
+keccak256_recursive_100_computes
+keccak256_recursive_500_computes
+keccak256_recursive_1000_computes
+keccak256_recursive_3000_computes
+keccak256_recursive_5000_computes"
 
 for circuit in $CIRCUITS; do
     for test in $TESTS; do
